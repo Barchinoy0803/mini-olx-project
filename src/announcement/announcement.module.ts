@@ -4,8 +4,8 @@ import { AnnouncementController } from './announcement.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Announcement, AnnouncementSchema } from './entities/announcement.entity';
 import { Category, CategorySchema } from 'src/category/entities/category.entity';
-import { User, UserSchema } from 'src/user/entities/user.entity';
-import { Color, ColorSchema } from 'src/color/entities/color.entity';
+import { User, UserSchema } from '../user/entities/user.entity';
+import { Color, ColorSchema } from '../color/entities/color.entity';
 
 @Module({
   imports: [

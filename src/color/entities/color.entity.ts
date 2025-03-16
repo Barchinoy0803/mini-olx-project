@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Announcement } from "src/announcement/entities/announcement.entity";
+import { Announcement } from "../../announcement/entities/announcement.entity";
 
 @Schema()
 export class Color {

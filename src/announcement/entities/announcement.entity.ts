@@ -1,8 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
-import { Category } from "src/category/entities/category.entity";
-import { Comment } from "src/comment/entities/comment.entity";
-import { Order } from "src/order/entities/order.entity";
+import { Comment } from "../../comment/entities/comment.entity";
+import { Order } from "../../order/entities/order.entity";
 import { ANNOUNCEMENT_TYPE } from "src/types/types";
 
 @Schema()

@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsEnum, IsNotEmpty, IsNumber, IsPositive, IsString } from "class-validator";
-import { ANNOUNCEMENT_TYPE } from "src/types/types";
+import { ANNOUNCEMENT_TYPE } from "../../types/types";
 
 export class CreateAnnouncementDto {
     @ApiProperty({ example: 'iPhone 14', description: 'Announcement title' })

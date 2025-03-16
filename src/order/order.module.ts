@@ -3,8 +3,8 @@ import { OrderService } from './order.service';
 import { OrderController } from './order.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Order, OrderSchema } from './entities/order.entity';
-import { User, UserSchema } from 'src/user/entities/user.entity';
-import { Announcement, AnnouncementSchema } from 'src/announcement/entities/announcement.entity';
+import { User, UserSchema } from '../user/entities/user.entity';
+import { Announcement, AnnouncementSchema } from '../announcement/entities/announcement.entity';
 
 @Module({
   imports: [

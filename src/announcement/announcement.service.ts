@@ -4,9 +4,9 @@ import { UpdateAnnouncementDto } from './dto/update-announcement.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Announcement } from './entities/announcement.entity';
 import { Model } from 'mongoose';
-import { Category } from 'src/category/entities/category.entity';
-import { User } from 'src/user/entities/user.entity';
-import { Color } from 'src/color/entities/color.entity';
+import { Category } from '../category/entities/category.entity';
+import { User } from '../user/entities/user.entity';
+import { Color } from '../color/entities/color.entity';
 import { FilterAnnouncementDto } from './dto/filter-announcement.dto';
 
 @Injectable()

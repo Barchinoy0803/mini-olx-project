@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './entities/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import * as dotenv from "dotenv"
-import { Region, RegionSchema } from 'src/region/entities/region.entity';
+import { Region, RegionSchema } from '../region/entities/region.entity';
 dotenv.config()
 
 @Module({

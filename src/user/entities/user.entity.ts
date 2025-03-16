@@ -1,8 +1,8 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
-import { Announcement } from "src/announcement/entities/announcement.entity";
-import { Order } from "src/order/entities/order.entity";
-import { USER_TYPE } from "src/types/types";
+import { Announcement } from "../../announcement/entities/announcement.entity";
+import { Order } from "../../order/entities/order.entity";
+import { USER_TYPE } from "../../types/types";
 
 @Schema()
 export class User {

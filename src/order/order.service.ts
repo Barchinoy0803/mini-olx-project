@@ -4,8 +4,8 @@ import { UpdateOrderDto } from './dto/update-order.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Order } from './entities/order.entity';
 import { Model } from 'mongoose';
-import { User } from 'src/user/entities/user.entity';
-import { Announcement } from 'src/announcement/entities/announcement.entity';
+import { User } from '../user/entities/user.entity';
+import { Announcement } from '../announcement/entities/announcement.entity';
 import { FilterOrderDto } from './dto/filter-order.dto';
 
 @Injectable()

@@ -3,8 +3,8 @@
   import { CommentController } from './comment.controller';
   import { MongooseModule } from '@nestjs/mongoose';
   import { Comment, CommentSchema } from './entities/comment.entity';
-  import { User, UserSchema } from 'src/user/entities/user.entity';
-  import { Announcement, AnnouncementSchema } from 'src/announcement/entities/announcement.entity';
+  import { User, UserSchema } from '../user/entities/user.entity';
+  import { Announcement, AnnouncementSchema } from '../announcement/entities/announcement.entity';
 
   @Module({
     imports: [

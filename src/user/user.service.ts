@@ -7,7 +7,7 @@ import mongoose, { Model } from 'mongoose';
 import * as bcrypt from "bcrypt"
 import { LoginUserDto } from './dto/login-user.dto';
 import { JwtService } from '@nestjs/jwt';
-import { Region } from 'src/region/entities/region.entity';
+import { Region } from '../region/entities/region.entity';
 import { FilterUserDto } from './dto/filter-user.dto';
 
 @Injectable()

@@ -4,8 +4,8 @@ import { UpdateCommentDto } from './dto/update-comment.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Comment } from './entities/comment.entity';
-import { User } from 'src/user/entities/user.entity';
-import { Announcement } from 'src/announcement/entities/announcement.entity';
+import { User } from '../user/entities/user.entity';
+import { Announcement } from '../announcement/entities/announcement.entity';
 import { FilterCommentDto } from './dto/filter-comment.dto';
 
 
