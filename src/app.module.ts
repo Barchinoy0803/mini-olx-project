@@ -19,8 +19,8 @@ const PASSWORD = process.env.DATABASE_PASSWORD
   imports: [UserModule, AnnouncementModule, RegionModule, CategoryModule, ColorModule, OrderModule, CommentModule, FileUploadModule,
     MongooseModule.forRoot(`mongodb+srv://barchinoy08:${PASSWORD}@mini-olx.wei9h.mongodb.net/?retryWrites=true&w=majority&appName=mini-olx`),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'uploads'),
-      serveRoot: '/image'
+      rootPath: join(__dirname, '..', 'public'),
+      serveRoot: '/swagger'
     })  
   ],
   controllers: [AppController],

@@ -13,7 +13,10 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("api/docs", app, document);
+  SwaggerModule.setup("swagger", app, document, {
+    customSiteTitle: "My API Docs",
+    customCssUrl: "/swagger/swagger-ui.css",
+  });
 
   await app.listen(process.env.PORT ?? 4000);
 }
