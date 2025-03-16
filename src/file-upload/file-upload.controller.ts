@@ -1,13 +1,12 @@
 import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-import * as path from 'path';
+import * as multer from 'multer';
 import { ApiTags, ApiBearerAuth, ApiConsumes, ApiBody, ApiResponse } from '@nestjs/swagger';
 
 @ApiTags('File Upload')
 @Controller('upload')
 export class FileUploadController {
-  
+
   @ApiBearerAuth()
   @ApiConsumes('multipart/form-data')
   @ApiBody({
@@ -25,17 +24,18 @@ export class FileUploadController {
   @ApiResponse({ status: 400, description: 'Invalid file format' })
   @Post()
   @UseInterceptors(
-    FileInterceptor('image', {
-      storage: diskStorage({
-        destination: './uploads',
-        filename(req, file, callback) {
-          let filename = `${Date.now()}-${Math.random() * 8}${path.extname(file.originalname)}`;
-          callback(null, filename);
-        },
-      }),
-    }),
+    FileInterceptor('image', { storage: multer.memoryStorage() }) 
   )
-  UploadedFile(@UploadedFile() file: Express.Multer.File) {
-    return { filename: file.filename };
+  uploadFile(@UploadedFile() file: Express.Multer.File) {
+    if (!file) {
+      return { message: 'No file uploaded' };
+    }
+
+    return {
+      filename: file.originalname,
+      mimetype: file.mimetype,
+      size: file.size,
+      base64: file.buffer.toString('base64'),
+    };
   }
 }
