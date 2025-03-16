@@ -15,7 +15,7 @@ import { join } from 'path';
 
 @Module({
   imports: [UserModule, AnnouncementModule, RegionModule, CategoryModule, ColorModule, OrderModule, CommentModule, FileUploadModule,
-    MongooseModule.forRoot("mongodb://localhost/mini-olx-project"),
+    MongooseModule.forRoot("mongodb+srv://barchinoy08:barchinoy0802@mini-olx.wei9h.mongodb.net/?retryWrites=true&w=majority&appName=mini-olx"),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
       serveRoot: '/image'
