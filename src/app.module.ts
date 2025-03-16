@@ -10,10 +10,16 @@ import { OrderModule } from './order/order.module';
 import { CommentModule } from './comment/comment.module';
 import { FileUploadModule } from './file-upload/file-upload.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [UserModule, AnnouncementModule, RegionModule, CategoryModule, ColorModule, OrderModule, CommentModule, FileUploadModule,
-    MongooseModule.forRoot("mongodb://localhost/mini-olx-project")  
+    MongooseModule.forRoot("mongodb://localhost/mini-olx-project"),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
+      serveRoot: '/image'
+    })  
   ],
   controllers: [AppController],
   providers: [AppService],

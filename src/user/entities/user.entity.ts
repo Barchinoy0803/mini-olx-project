@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
+import { Announcement } from "src/announcement/entities/announcement.entity";
+import { Order } from "src/order/entities/order.entity";
 import { USER_TYPE } from "src/types/types";
 
 @Schema()
@@ -30,6 +32,15 @@ export class User {
 
     @Prop()
     image: string
+
+    @Prop()
+    comments: Comment[]
+
+    @Prop()
+    announcements: Announcement[]
+
+    @Prop()
+    orders: Order[]
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)

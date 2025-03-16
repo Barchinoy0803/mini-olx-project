@@ -1073,6 +1073,13 @@
     jsonc-parser "3.3.1"
     pluralize "8.0.0"
 
+"@nestjs/serve-static@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/serve-static/-/serve-static-5.0.3.tgz#63d8021ce93ab91515fd7dfffaa71d734bddb3f8"
+  integrity sha512-0jFjTlSVSLrI+mot8lfm+h2laXtKzCvgsVStv9T1ZBZTDwS26gM5czIhIESmWAod0PfrbCDFiu9C1MglObL8VA==
+  dependencies:
+    path-to-regexp "8.2.0"
+
 "@nestjs/swagger@^11.0.6":
   version "11.0.6"
   resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-11.0.6.tgz#768ffd9cf1a72b9657f522f04f51587f925ee9fc"
@@ -3275,6 +3282,11 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     es-set-tostringtag "^2.1.0"
     mime-types "^2.1.12"
+
+formatter@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/formatter/-/formatter-0.4.2.tgz#decbad9550356a47973c5ddfa89ad91284896e39"
+  integrity sha512-zvZCbQkPl0sMg8wB5DKuHFYBxq1PZgaqBBPMRsUA+h3gAxPNN3MEIbHDtPdxuQ9Da8EdUT1juaOU0anUASHZFQ==
 
 formidable@^3.5.1:
   version "3.5.2"

@@ -4,4 +4,9 @@ enum USER_TYPE {
     SELLER = 'SELLER'
 }
 
-export { USER_TYPE }
+enum ANNOUNCEMENT_TYPE{
+    OLD='OLD',
+    NEW='NEW'
+}
+
+export { USER_TYPE, ANNOUNCEMENT_TYPE }

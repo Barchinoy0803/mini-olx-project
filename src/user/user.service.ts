@@ -3,11 +3,12 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './entities/user.entity';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 import * as bcrypt from "bcrypt"
 import { LoginUserDto } from './dto/login-user.dto';
 import { JwtService } from '@nestjs/jwt';
 import { Region } from 'src/region/entities/region.entity';
+import { FilterUserDto } from './dto/filter-user.dto';
 
 @Injectable()
 export class UserService {
@@ -20,7 +21,6 @@ export class UserService {
   async findByEmail(email: string) {
     try {
       let user = await this.userModel.findOne({ email })
-      if (!user) return new HttpException("Not found", HttpStatus.NOT_FOUND)
       return user
     } catch (error) {
       console.log(error.message);
@@ -58,16 +58,50 @@ export class UserService {
     }
   }
 
-  async findAll(region?: string) {
+  async findAll(query: FilterUserDto) {
     try {
-      let filter = region ? { regionId: region } : {}
-      let users = await this.userModel.find(filter).populate('regionId').exec()
-      if (!users.length) return new HttpException("Not found", HttpStatus.NOT_FOUND)
-      return users
+      const { page = 1, limit = 10, ...filters } = query;
+
+      const pageNumber = Number(page);
+      const limitNumber = Number(limit);
+
+      const filter = Object.entries(filters).reduce((obj, [key, value]) => {
+        if (value !== undefined && value !== '' && key !== 'location' && key !== 'shopName') {
+          obj[key] = value;
+        }
+        return obj;
+      }, {} as any);
+
+      if (query.location) {
+        filter.location = { $regex: query.location, $options: 'i' };
+      }
+
+      if (query.shopName) {
+        filter.shopName = { $regex: query.shopName, $options: 'i' };
+      }
+
+      const totalUsers = await this.userModel.countDocuments(filter);
+
+      const users = await this.userModel
+        .find(filter)
+        .skip((pageNumber - 1) * limitNumber)
+        .limit(limitNumber)
+        .exec();
+
+      if (!users.length) throw new HttpException("Not found", HttpStatus.NOT_FOUND);
+
+      return {
+        totalUsers,
+        totalPages: Math.ceil(totalUsers / limitNumber),
+        currentPage: pageNumber,
+        users,
+      };
     } catch (error) {
       console.log(error.message);
+      throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
+
 
   async findOne(id: string) {
     try {
